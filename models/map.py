@@ -5,6 +5,8 @@
 
 from position import Position as pos
 import settings as constants
+import pygame
+from pygame.locals import *
 
 class Map:
     def __init__(self, filename):
@@ -60,6 +62,33 @@ class Map:
             value= self.list_chars[index]
             if value != "\n":
                 yield(position, value)
+
+    def draw_map(self, window):
+
+        start = pygame.image.load(constants.home_picture).convert()
+        wall = pygame.image.load(constants.wall_picture).convert()
+        goal = pygame.image.load(constants.goal_picture).convert_alpha()
+        path = pygame.image.load(constants.background_picture).convert()
+
+        for position, value in self.items():
+            #Draw start
+            if value == constants.START:
+                x=position.get_x() * constants.size_sprite
+                y=position.get_y() * constants.size_sprite
+                window.blit(start, (x,y))
+            elif value == constants.WALL:
+                x=position.get_x() * constants.size_sprite
+                y=position.get_y() * constants.size_sprite
+                window.blit(wall, (x,y))
+            elif value == constants.GOAL:
+                x=position.get_x() * constants.size_sprite
+                y=position.get_y() * constants.size_sprite
+                window.blit(goal, (x,y))
+            else:
+                x=position.get_x() * constants.size_sprite
+                y=position.get_y() * constants.size_sprite
+                window.blit(path, (x,y))
+
 
 def main():
     """ main test """
