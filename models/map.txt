@@ -1,15 +1,15 @@
-S MMMMMMMMMMMMM
-  M   M    M  M
-  M M M    M MM
-  M M M    M MM
-  M M      M  M
-    M MMMMMM MM
-M M M        MM
-M MMMMMMMMMMMMM
-M M           M
-M M M   M     M
-M M M   M     M
-M M M   MMMMMMM
-M M M         M
-M   M         E
-MMMMMMMMMMMMMMM
+.SM..M.MM..M...
+.M...M....M..M.
+.M.M.M.M....MM.
+.M.M.M..M.M.MM.
+.M.M......M..M.
+...M.MMMM.M.M..
+.M.M.....M..M.M
+.MMMMMM.MM.MM..
+.M...M.....M.M.
+.M.M.MMM.MM..M.
+.M.M...M...M...
+.M.M...M.MMM.M.
+.M.MMM..M....M.
+.M.M...M..MMM.M
+...M..M.......G
