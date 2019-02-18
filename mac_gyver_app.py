@@ -98,7 +98,6 @@ while continue_main:
 
         # Limit the loop speed
         pygame.time.Clock().tick(30)
-        print(Sprite.object_create)
 
         for event in pygame.event.get():
             # If user quit, put all loops variables and game_level to 0
