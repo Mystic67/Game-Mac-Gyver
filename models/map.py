@@ -5,12 +5,11 @@
 import pygame
 from pygame.locals import *
 from models.position import Position as pos
-import config.settings as constants
 
 
 class Map:
     def __init__(self, filename):
-        ''' intialize the variables '''
+        ''' Initialize the attributs'''
         self.__filename = filename
         #List of map positions
         self.__list_positions = []
@@ -35,7 +34,8 @@ class Map:
 
 
     def __str__(self):
-        """method to represente the map if print(instance) in interpreter """
+        """method to represente the map if print(instance) in interpreter
+        Not needed for the programme, only for debugging"""
         string=""
         for value in self.__list_chars:
             string+=value
@@ -44,7 +44,7 @@ class Map:
 
     def __repr__(self):
         """method to represente the instance from object if enter
-         instance name in interpreter """
+         instance name in interpreter. Not needed for the programme, only for debugging """
         string="{"
         first_loop = True
         for key, value in self.items():
@@ -58,7 +58,7 @@ class Map:
 
 
     def __getitem__(self, pos):
-        """Return the value from the index of position """
+        """ Return the value from the index of position when call map[x,y] """
         #value=0
         for index, val in enumerate(self.__list_positions):
             if hash(val) == hash(pos):
@@ -66,15 +66,12 @@ class Map:
 
 
     def items(self):
-        """ method to create a generator (__list_positions, __list_chars) """
+        """ method to get all positions and values from index of lists.
+        They are stored in generator  """
         for index, position in enumerate(self.__list_positions):
             value= self.__list_chars[index]
             if value != "\n":
                 yield(position, value)
-
-
-    def get_list_path(self):
-        return __list_path
 
 
 def main():
