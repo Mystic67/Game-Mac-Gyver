@@ -15,18 +15,17 @@ class Graphic_Map(Map):
     def draw_map(self, window):
         ''' This method draw the map tile per tile '''
 
-
         tile_error = pygame.image.load(constants.TILE_ERROR).convert()
         tiles = pygame.image.load(constants.TILES_PICTURES)
         tile_start = tiles.subsurface(40,80,40,40).convert_alpha()#Colonne,Ligne,H,W
         tile_wall = tiles.subsurface(480,440,40,40).convert_alpha()
         tile_goal = tiles.subsurface(320,40,40,40).convert_alpha()
-        tile_path = tiles.subsurface(320,320,40,40).convert_alpha()
+        tile_path = tiles.subsurface(360,40,40,40).convert_alpha()
 
 
         '''Search the positions and values from loaded file with the item
-           generator method defined in parent class Map.
-           Draw the tiles with the positions.'''
+           generator method defined in parent class Map and display each tile
+            at his positions.'''
         for position, value in self.items():
             if value == constants.START:
                 x=position.get_x() * constants.SPRITE_SIZE
