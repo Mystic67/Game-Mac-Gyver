@@ -126,9 +126,8 @@ while continue_main:
 		murdoc.display(window)
 		mac_gyver.display(window)
 
-        #Diplay the gadget from list 
+        #Diplay the gadget from list
 		for index, gadget in enumerate(list_gadget):
-			print (index, gadget)
 			if gadget.get_position() == mac_gyver.get_position():
 				del list_gadget[index]
 			gadget.display(window)
@@ -138,14 +137,11 @@ while continue_main:
 			game_end = 1
 
 
-		print(Sprite.object_create)
-
 		#refresh the display
 		pygame.display.flip()
 
 	'''End of game '''
 	if game_end != 0:
-		print(Sprite.object_create)
 
 		if len(list_gadget) == 0:
 			del murdoc
