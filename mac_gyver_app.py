@@ -59,6 +59,7 @@ while continue_main:
 				if event.key == K_SPACE:
 					continue_home = 0
 					game_level = 1
+					game_end = 0
 
 
 	if game_level != 0:
@@ -70,11 +71,23 @@ while continue_main:
 		pygame.display.flip()
 		#Create the sprite Mac Gyver and display it on start position
 		# Mac Gyver is movable (Last param True)
+		#Create the sprite Mac Gyver and display it on start position
 		mac_gyver = Sprite(map, constants.MAC_GYVER, constants.START, True)
 		mac_gyver.display(window)
-		#Create the sprite Mac Gyver and display it on start position
+
+		#Create the sprite Murdoc and display it on start position
 		murdoc = Sprite(map, constants.MURDOC, constants.GOAL)
 		murdoc.display(window)
+
+		list_gadget=[]
+		for index, gadget in enumerate(constants.GADGETS_NAME):
+			#for image in constants.GADGETS:
+			#print(gadget)
+			gadget = Sprite(map, constants.GADGETS_PICTURES[index])
+			list_gadget.append(gadget)
+			gadget.display(window)
+
+
 		#refresh the display
 		pygame.display.flip()
 
@@ -85,6 +98,7 @@ while continue_main:
 
 		#Limit the loop speed
 		pygame.time.Clock().tick(30)
+
 		for event in pygame.event.get():
 			#If user quit, put all loops variables and game_level to 0
 			if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:
@@ -109,7 +123,40 @@ while continue_main:
 
 		#Draw map and display the sprites and objects
 		map.draw_map(window)
-		mac_gyver.display(window)
 		murdoc.display(window)
-		##refresh the display
+		mac_gyver.display(window)
+
+        #Diplay the gadget from list 
+		for index, gadget in enumerate(list_gadget):
+			print (index, gadget)
+			if gadget.get_position() == mac_gyver.get_position():
+				del list_gadget[index]
+			gadget.display(window)
+
+		if murdoc.get_position() == mac_gyver.get_position():
+			continue_game = 0
+			game_end = 1
+
+
+		print(Sprite.object_create)
+
+		#refresh the display
+		pygame.display.flip()
+
+	'''End of game '''
+	if game_end != 0:
+		print(Sprite.object_create)
+
+		if len(list_gadget) == 0:
+			del murdoc
+			mac_gyver.display(window)
+			message = pygame.image.load(constants.YOU_WIN).convert_alpha()
+
+		else:
+			del mac_gyver
+			murdoc.display(window)
+			message = pygame.image.load(constants.YOU_LOSE).convert_alpha()
+
+		window.blit(message, (120,200))
+		#refresh the display
 		pygame.display.flip()
