@@ -12,15 +12,17 @@ from views.sprite import Sprite
 pygame.init()
 
 
-# Initialize the window size and load the stat_picture
+# Initialize the window size.
 window = pygame.display.set_mode(
     (constants.WINDOW_SIDE_SIZE,
      constants.WINDOW_SIDE_SIZE))
 
 
-# Display the start picture
+# Load the stat_picture
 picture_home = pygame.image.load(constants.HOME_PICTURE).convert()
+# Display the start picture
 window.blit(picture_home, (0, 0))
+# Refresh the display
 pygame.display.flip()
 
 
@@ -67,22 +69,25 @@ while continue_main:
         map.draw_map(window)
         # refresh the display
         pygame.display.flip()
+
+        object_list_sprites = []
         # Create the sprite Mac Gyver and display it on start position
         # Mac Gyver is movable (Last param True)
         # Create the sprite Mac Gyver and display it on start position
         mac_gyver = Sprite(map, constants.MAC_GYVER, constants.START, True)
+        object_list_sprites.append(mac_gyver)
         mac_gyver.display(window)
 
         # Create the sprite Murdoc and display it on start position
         murdoc = Sprite(map, constants.MURDOC, constants.GOAL)
+        object_list_sprites.append(murdoc)
         murdoc.display(window)
 
-        list_gadget = []
+        # Create the gadgets and display them
+        object_list_gadget = []
         for index, gadget in enumerate(constants.GADGETS_NAME):
-            # for image in constants.GADGETS:
-            # print(gadget)
             gadget = Sprite(map, constants.GADGETS_PICTURES[index])
-            list_gadget.append(gadget)
+            object_list_gadget.append(gadget)
             gadget.display(window)
 
         # refresh the display
@@ -93,6 +98,7 @@ while continue_main:
 
         # Limit the loop speed
         pygame.time.Clock().tick(30)
+        print(Sprite.object_create)
 
         for event in pygame.event.get():
             # If user quit, put all loops variables and game_level to 0
@@ -121,12 +127,12 @@ while continue_main:
         murdoc.display(window)
         mac_gyver.display(window)
 
-    # Diplay the gadget from list
-        for index, gadget in enumerate(list_gadget):
+        # Diplay the gadget from list
+        for index, gadget in enumerate(object_list_gadget):
             if gadget.get_position() == mac_gyver.get_position():
-                del list_gadget[index]
+                del object_list_gadget[index]
             gadget.display(window)
-
+        # Compare the position from murdoc and mac_gyver to know if game is end
         if murdoc.get_position() == mac_gyver.get_position():
             continue_game = 0
             game_end = 1
@@ -137,16 +143,24 @@ while continue_main:
     '''End of game '''
     if game_end != 0:
 
-        if len(list_gadget) == 0:
-            del murdoc
+        # If Mac Gyver win, Murdoc disappears
+        if len(object_list_gadget) == 0:
+            for sprite in object_list_sprites:
+                if sprite == "murdoc":
+                    del sprite
+            map.draw_map(window)
             mac_gyver.display(window)
             message = pygame.image.load(constants.YOU_WIN).convert_alpha()
-
+        # if Mac Gyver lose, he disappears
         else:
-            del mac_gyver
+            for sprite in object_list_sprites:
+                if sprite == "mac_gyver":
+                    del sprite
+            map.draw_map(window)
             murdoc.display(window)
             message = pygame.image.load(constants.YOU_LOSE).convert_alpha()
 
+        # Display the end message
         window.blit(message, (120, 200))
         # refresh the display
         pygame.display.flip()
