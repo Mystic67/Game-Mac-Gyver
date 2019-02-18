@@ -7,7 +7,6 @@ import random
 
 
 class Sprite:
-    object_create = 0
 
     def __init__(self, instance_map, image, init_pos="random", move=False):
         ''' Initialize the attributs'''
@@ -32,7 +31,7 @@ class Sprite:
         '''This method initialise the position with random
         or given position. '''
         if self.__init_pos == "random":
-            type(self).object_create += 1
+
             rand_pos = random.choice(
                 [pos for (pos, val) in self.__map.items()
                     if val == constants.PATH])
@@ -49,10 +48,6 @@ class Sprite:
                     val) in self.__map.items() if val == self.__init_pos]
             self.__x = position[0].get_x()
             self.__y = position[0].get_y()
-
-    def __del__(self):
-        # if self.__init_pos == "random":
-        type(self).object_create -= 1
 
     def get_position(self):
         '''Method to get the position from sprite '''
