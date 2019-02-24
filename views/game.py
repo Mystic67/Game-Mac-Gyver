@@ -6,7 +6,7 @@ import config.settings as constants
 from controller.events import Events as events
 from views.graphic_map import Graphic_Map
 from views.sprite import Sprite
-from models.counter import Counter
+from views.counter import Counter
 
 
 class Game:
