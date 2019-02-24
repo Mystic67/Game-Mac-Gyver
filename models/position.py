@@ -12,21 +12,6 @@ class Position:
         self.__y = y
         self.__position = (self.__x, self.__y)  # absisse/ordonee position
 
-    def __repr__(self):
-        '''method to return position if enter instance in the
-        interpreter'''
-        return str(self.__position)
-
-    def __str__(self):
-        '''method to return position if enter print(instance) in the
-        interpreter '''
-        return repr(self)
-
-    def __hash__(self):
-        '''method to convert position to hash value.
-        Needed to accès to a dictionary with key '''
-        return hash(self.__position)
-
     def __eq__(self, position):
         '''This method is needed if want to compare a position with tuple
         self.__position == (x,y) '''
