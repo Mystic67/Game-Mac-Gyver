@@ -22,37 +22,10 @@ class Map:
                     self.__list_positions.append(pos(x, y))
                     self.__list_chars.append(char)
 
-    def __iter__(self):
-        '''makes position iterable '''
-        return iter(self.__list_positions)
-
-    def __str__(self):
-        '''method to represente the map if print(instance) in interpreter
-        Not needed for the programme, only for debugging'''
-        string = ""
-        for value in self.__list_chars:
-            string += value
-        return string
-
-    def __repr__(self):
-        '''method to represente the instance from object if enter
-         instance name in interpreter. Not needed for the programme,
-         only for debugging '''
-        string = "{"
-        first_loop = True
-        for key, value in self.items():
-            if not first_loop:
-                string += ","
-            else:
-                first_loop = False
-            string += repr(key) + ":" + repr(value)
-        string += "}"
-        return string
-
     def __getitem__(self, position):
         ''' Return the value from the index of position when call map[x,y] '''
         for index, val in enumerate(self.__list_positions):
-            if hash(val) == hash(position):
+            if val == position:
                 return self.__list_chars[index]
 
     def items(self):
@@ -62,18 +35,3 @@ class Map:
             value = self.__list_chars[index]
             if value != "\n":
                 yield(position, value)
-
-
-def main():
-    ''' main test '''
-#    map = Map("map.txt")
-#    print(map)
-#    print(map[(0,0)])
-#    map[2,5]
-#    print(map[2,5])
-#    for position, value in map.items():
-#        print(position, value)
-
-
-if __name__ == "__main__":
-    main()
