@@ -36,3 +36,8 @@ ________________________________________________________________________________
 There is only one map in the game.
 
 To move "Mac Gyver", use the keyboard direction keys.
+
+<div align="center">
+    <img src="/images/Game_MacGyver.png" width="450px"</img> </br>
+    <img src="/images/Mac_Gyver_game.png" width="450px"</img> 
+</div>
