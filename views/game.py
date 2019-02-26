@@ -143,5 +143,4 @@ class Game:
             if cls.gadget.get_position() == cls.mac_gyver.get_position():
                 Counter.add_gadgets(cls.object_list_gadget[index])
                 del cls.object_list_gadget[index]
-                Counter.increment("gadgets")
             cls.gadget.display(cls.window)

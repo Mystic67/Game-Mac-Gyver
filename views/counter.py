@@ -66,3 +66,4 @@ class Counter:
     @classmethod
     def add_gadgets(cls, sprite):
         cls._picked_up_liste.append(sprite)
+        cls.increment("gadgets")
