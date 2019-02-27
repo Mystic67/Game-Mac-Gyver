@@ -26,8 +26,7 @@ class Counter:
 
         for index, sprite in enumerate(cls._picked_up_liste):
             sprite.position.set_position(
-                ((constants.SPRITE_BY_SIDE + 0.75),
-                (5 + index * 1.5)))
+                (((5 + index * 1.5),constants.SPRITE_BY_SIDE + 0.75)))
             sprite.display(window)
 
     @classmethod
