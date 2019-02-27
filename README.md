@@ -2,9 +2,9 @@
 Openclassrooms Pygame project in Python3
 
 
-## Installation:
-Before the following installation, you need to have installed Python 3:
-see more on this webpage:
+### Installation:
+Before the following installation, you need to have installed Python3.
+See more on this webpage:
 https://www.python.org/downloads/
 
 If you needed to be logged as "root", use "sudo" in front of the commands.
@@ -12,14 +12,14 @@ According to your system (Windows, linux or Mac) you need to use pip or pip3.
 __________________________________________________________________________________________________________________________
 ### Install pip3 with command like:
   ##### python3 -m pip
-see more on this webpage:
+See more on this webpage:
 https://pip.pypa.io/en/stable/installing/
 
 ### Install and create a virtual environment Python3 and activate it with pip3 or pip like:
   ##### pip3 install virtualenv.
   Activate your virtualenv with command like:
   ##### source env/bin/activate     
-see more on this webpage:
+See more on this webpage:
 https://virtualenv.pypa.io/en/latest/installation/
 
 ### Clone or download this game from GitHub in your virtual environment directory: 
