@@ -30,22 +30,22 @@ class Graphic_Map(Map):
             if value == constants.START:
                 x = position.get_x() * constants.SPRITE_SIZE
                 y = position.get_y() * constants.SPRITE_SIZE
-                window.blit(tile_start, (y, x))
+                window.blit(tile_start, (x, y))
             elif value == constants.WALL:
                 x = position.get_x() * constants.SPRITE_SIZE
                 y = position.get_y() * constants.SPRITE_SIZE
-                window.blit(tile_wall, (y, x))
+                window.blit(tile_wall, (x, y))
             elif value == constants.PATH:
                 x = position.get_x() * constants.SPRITE_SIZE
                 y = position.get_y() * constants.SPRITE_SIZE
-                window.blit(tile_path, (y, x))
+                window.blit(tile_path, (x, y))
             elif value == constants.GOAL:
                 x = position.get_x() * constants.SPRITE_SIZE
                 y = position.get_y() * constants.SPRITE_SIZE
-                window.blit(tile_goal, (y, x))
+                window.blit(tile_goal, (x, y))
             else:
                 x = position.get_x() * constants.SPRITE_SIZE
                 y = position.get_y() * constants.SPRITE_SIZE
-                window.blit(tile_error, (y, x))
+                window.blit(tile_error, (x, y))
                 print("Error string in map at position ({},{})".
-                      format(position.get_y() + 1, position.get_x() + 1))
+                      format(position.get_x() + 1, position.get_y() + 1))
