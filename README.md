@@ -14,14 +14,18 @@ ________________________________________________________________________________
   ##### python3 -m pip
 See more on this webpage:
 https://pip.pypa.io/en/stable/installing/
-
-### Install and create a virtual environment Python3 and activate it with pip3 or pip like:
+___________________________________________________________________________________________________________________________
+### Install a virtual environment Python3 with pip3 or pip like:
   ##### pip3 install virtualenv.
-  Activate your virtualenv with command like:
+  
+### Create your environment with command like:
+  ##### python3 -m virtualenv env
+  
+### Activate your virtualenv with command like:
   ##### source env/bin/activate     
 See more on this webpage:
 https://virtualenv.pypa.io/en/latest/installation/
-
+____________________________________________________________________________________________________________________________
 ### Clone or download this game from GitHub in your virtual environment directory: 
   ##### https://github.com/Mystic67/Game-Mac-Gyver
   
@@ -31,7 +35,7 @@ https://virtualenv.pypa.io/en/latest/installation/
 
 ### Start the game with command:  
   ##### python3 /path/to/mac_gyver_app.py
-  (example: pyhton3 /Game-Mac-Gyver/mac_gyver_app.py)
+  (example: python3 /Game-Mac-Gyver/mac_gyver_app.py)
 __________________________________________________________________________________________________________________________
 
 
