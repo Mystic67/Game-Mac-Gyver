@@ -2,7 +2,7 @@
 # -*-coding: utf-8-*-
 
 
-from models.position import Position as pos
+from models.position import Position
 
 
 class Map:
@@ -17,9 +17,9 @@ class Map:
 
     def __load_from_file(self):
         with open(self.__filename, "r") as file:
-            for x, line in enumerate(file):
-                for y, char in enumerate(line):
-                    self.__list_positions.append(pos(x, y))
+            for y, line in enumerate(file):
+                for x, char in enumerate(line):
+                    self.__list_positions.append(Position(x, y))
                     self.__list_chars.append(char)
 
     def __getitem__(self, position):
