@@ -77,7 +77,8 @@ class Game:
             Counter.display(cls.window)
             # Compare the position from murdoc and mac_gyver to know if game is
             # end
-            if cls.murdoc.position.get_position() == cls.mac_gyver.position.get_position():
+            if cls.murdoc.position.get_position() == \
+                    cls.mac_gyver.position.get_position():
                 # set the game variables to end the game
                 events.end_game()
             # Refresh display
@@ -131,7 +132,9 @@ class Game:
         list and refresh the display'''
         cls.object_list_gadget = []
         for index, cls.gadget in enumerate(constants.GADGETS_NAME):
-            cls.gadget = Sprite(cls.graphmap, constants.GADGETS_PICTURES[index])
+            cls.gadget = Sprite(
+                cls.graphmap,
+                constants.GADGETS_PICTURES[index])
             cls.object_list_gadget.append(cls.gadget)
             cls.gadget.display(cls.window)
 
@@ -140,7 +143,8 @@ class Game:
         ''' This method delete the gadgets when MAC_GYVER
         picked it up and display the gadgets'''
         for index, cls.gadget in enumerate(cls.object_list_gadget):
-            if cls.gadget.position.get_position() == cls.mac_gyver.position.get_position():
+            if cls.gadget.position.get_position() == \
+                    cls.mac_gyver.position.get_position():
                 Counter.add_gadgets(cls.object_list_gadget[index])
                 del cls.object_list_gadget[index]
             cls.gadget.display(cls.window)

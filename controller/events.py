@@ -2,7 +2,6 @@
 # -*-coding: utf-8-*-
 
 import pygame
-from pygame.locals import *
 
 
 class Events:
@@ -18,26 +17,26 @@ class Events:
     def listen_game_events(cls, instance_sprite=None):
         cls.instance_sprite = instance_sprite
         for event in pygame.event.get():
-            if event.type == QUIT or event.type == KEYDOWN \
-                    and event.key == K_ESCAPE:
+            if event.type == pygame.QUIT or event.type == pygame.KEYDOWN \
+                    and event.key == pygame.K_ESCAPE:
                 cls.quit_game()  # Quit the game
                 '''If user presse space bar, quit home screen and start game'''
-            elif event.type == KEYDOWN:
-                if event.key == K_SPACE:
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
                     cls.go_game()  # Start de game
                     ''' Listen the directory entry key if instance
                      of sprite is given as parameter'''
                 elif instance_sprite is not None:
-                    if event.key == K_RIGHT:
+                    if event.key == pygame.K_RIGHT:
                         cls.instance_sprite.move("right")
 
-                    elif event.key == K_LEFT:
+                    elif event.key == pygame.K_LEFT:
                         cls.instance_sprite.move("left")
 
-                    elif event.key == K_UP:
+                    elif event.key == pygame.K_UP:
                         cls.instance_sprite.move("up")
 
-                    elif event.key == K_DOWN:
+                    elif event.key == pygame.K_DOWN:
                         cls.instance_sprite.move("down")
 
     @classmethod

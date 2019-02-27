@@ -10,11 +10,11 @@ from models.position import Position
 
 class Sprite:
     '''This class create personnages and gadgets.'''
-    last_random = (0,0)
+    last_random = (0, 0)
 
     def __init__(self, instance_map, image, init_pos="random", movable=False):
         ''' Initialize the attributs'''
-        self.__map = instance_map #instance of map
+        self.__map = instance_map  # instance of map
         self.__image = image
         self.__init_pos = init_pos
         self.__movable = movable
@@ -22,7 +22,7 @@ class Sprite:
             constants.PATH,
             constants.START,
             constants.GOAL]
-        self.position = Position(0,0)
+        self.position = Position(0, 0)
         self.__init_position()
 
     def display(self, window):
@@ -54,7 +54,6 @@ class Sprite:
                         if val == self.__init_pos]
             self.position.set_position(position[0].get_position())
 
-
     def move(self, direction):
         '''Method to move the sprite if give attribut True to class parameter.
         The spite can move if target position is Path'''
@@ -63,19 +62,19 @@ class Sprite:
             if self.direction == "right":
                 if self.__map[self.position.get_x() + 1,
                               self.position.get_y()] in self.__move_conditions:
-                    self.position.set_x(self.position.get_x()+1)
+                    self.position.set_x(self.position.get_x() + 1)
 
             elif self.direction == "left":
                 if self.__map[self.position.get_x() - 1,
                               self.position.get_y()] in self.__move_conditions:
-                    self.position.set_x(self.position.get_x()-1)
+                    self.position.set_x(self.position.get_x() - 1)
 
             elif self.direction == "down":
                 if self.__map[self.position.get_x(), self.position.get_y() +
                               1] in self.__move_conditions:
-                    self.position.set_y(self.position.get_y()+1)
+                    self.position.set_y(self.position.get_y() + 1)
 
             elif self.direction == "up":
                 if self.__map[self.position.get_x(), self.position.get_y() -
                               1] in self.__move_conditions:
-                    self.position.set_y(self.position.get_y()-1)
+                    self.position.set_y(self.position.get_y() - 1)
