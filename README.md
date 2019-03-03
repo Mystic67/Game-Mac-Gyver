@@ -11,6 +11,8 @@ If you needed to be logged as "root", use "sudo" in front of the commands.
 __________________________________________________________________________________________________________________________
 ### Install pip3 with command like:
   ##### python3 -m pip
+  or
+  ##### python -m pip (Windows with Python3 installed)
 See more on this webpage:
 https://pip.pypa.io/en/stable/installing/
 ___________________________________________________________________________________________________________________________
@@ -33,10 +35,16 @@ ________________________________________________________________________________
 ### Install the requirements whith pip3 or pip like:
   ##### pip3 install /path/to/requirements.txt   
   (example: pip3 install /Game-Mac-Gyver/requirements)
+  
+### Go to Game-Mac-Gyver directory with command:
+  ##### cd /path/to/Game-Mac-Gyver/
+  or
+  ##### cd \path\to\Game-Mac-Gyver\   (Windows)
 
-### Start the game with command:  
-  ##### python3 -r /path/to/mac_gyver_app.py
-  (example: python3 /Game-Mac-Gyver/mac_gyver_app.py)
+### Start the game with command:
+  ##### python3 mac_gyver_app.py
+  or
+  ##### python mac_gyver_app.py (Windows with Python3 installed)
 __________________________________________________________________________________________________________________________
 
 
