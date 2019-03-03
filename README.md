@@ -35,7 +35,7 @@ ________________________________________________________________________________
   (example: pip3 install /Game-Mac-Gyver/requirements)
 
 ### Start the game with command:  
-  ##### python3 /path/to/mac_gyver_app.py
+  ##### python3 -r /path/to/mac_gyver_app.py
   (example: python3 /Game-Mac-Gyver/mac_gyver_app.py)
 __________________________________________________________________________________________________________________________
 
