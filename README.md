@@ -8,21 +8,22 @@ See more on this webpage:
 https://www.python.org/downloads/
 
 If you needed to be logged as "root", use "sudo" in front of the commands.
-According to your system (Windows, linux or Mac) you need to use pip or pip3.
 __________________________________________________________________________________________________________________________
 ### Install pip3 with command like:
   ##### python3 -m pip
 See more on this webpage:
 https://pip.pypa.io/en/stable/installing/
 ___________________________________________________________________________________________________________________________
-### Install a virtual environment Python3 with pip3 or pip like:
+### Install a virtual environment Python3 with pip3 like:
   ##### pip3 install virtualenv.
   
 ### Create your environment with command like:
-  ##### python3 -m virtualenv env
+  ##### virtualenv env
   
 ### Activate your virtualenv with command like:
-  ##### source env/bin/activate     
+  ##### source env/bin/activate 
+  or 
+  ##### env\scripts\activate (Windows)
 See more on this webpage:
 https://virtualenv.pypa.io/en/latest/installation/
 ____________________________________________________________________________________________________________________________
