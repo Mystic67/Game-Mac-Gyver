@@ -105,6 +105,8 @@ class Game:
                         del sprite
                 cls.graphmap.draw_map(cls.window)
                 cls.murdoc.display(cls.window)
+                for gadget in cls.object_list_gadget:
+                    gadget.display(cls.window)
                 message = pygame.image.load(constants.YOU_LOSE).convert_alpha()
 
             # Display the end message
