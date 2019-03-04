@@ -1,6 +1,8 @@
 #! /usr/bin/python3
 # -*-coding: utf-8-*-
 
+import os
+import pickle
 import pygame
 import config.settings as constants
 import random
@@ -11,7 +13,6 @@ from collections import deque
 
 class Sprite:
     '''This class create personnages and gadgets.'''
-    fifo = deque([], maxlen = len(constants.GADGETS_NAME))
 
     def __init__(self, instance_map, image="images/ether.png", init_pos="random", movable=False):
         ''' Initialize the attributs'''
@@ -36,16 +37,18 @@ class Sprite:
     def __init_position(self):
         '''This method initialise the position with random
         or given position. '''
+        fifo = self.load_fifo()
         if self.__init_pos == "random":
             while 1:
                 '''loop to find a free random position '''
                 rand_pos = random.choice(
                     [pos for (pos, val) in self.__map.items()
                         if val == constants.PATH])
-                if rand_pos not in Sprite.fifo:
+                if rand_pos not in fifo:
                     break
-            Sprite.fifo.append(rand_pos)
+            fifo.append(rand_pos)
             self.position.set_position(rand_pos.get_position())
+            self.save_fifo(fifo)
             Counter.increment("total_gadgets")
         else:
             ''' If the position is given in param. The position (x,y)
@@ -55,6 +58,23 @@ class Sprite:
                         if val == self.__init_pos]
             self.position.set_position(position[0].get_position())
 
+    def load_fifo(self):
+        '''This method load the last saved fifo list from file if exists'''
+        if os.path.exists("./views/gadgets_fifo"):
+            file_fifo = open("./views/gadgets_fifo", "rb")
+            pickler = pickle.Unpickler(file_fifo)
+            gadgets_fifo = pickler.load()
+            file_fifo.close()
+        else: # if file not exists
+            gadgets_fifo = deque([], maxlen = len(constants.GADGETS_NAME))
+        return gadgets_fifo
+
+    def save_fifo(self, fifo):
+        '''This method save the gadgets fifo list to file'''
+        file_fifo = open("./views/gadgets_fifo", "wb")
+        pickler = pickle.Pickler(file_fifo)
+        pickler.dump(fifo)
+        file_fifo.close()
 
     def move(self, direction):
         '''Method to move the sprite if give attribut True to class parameter.
